@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smart.ssp.lite.mapper.SilverMapper">
+    <select id="getSilverInfo" parameterType="silverVO" resultType="silverVO">
+        SELECT Id,Name,Price
+    	FROM silver
+    	WHERE ID = #{id}
+    </select>
+    
+    <insert id="collectSilverInfo" parameterType="silverVO">
+        INSERT INTO silver(`Name`,Price) VALUES (#{name},#{price})
+    </insert>
+    
+    <update id="updateSilverInfo" parameterType="silverVO">
+        UPDATE silver
+        SET `Name` = #{name},Price = #{price}
+        WHERE ID = #{id}
+    </update>
+</mapper>
